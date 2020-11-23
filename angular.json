@@ -121,5 +121,8 @@
       }
     }
   },
-  "defaultProject": "E-School"
+  "defaultProject": "E-School",
+  "cli": {
+    "analytics": "903398f4-7c5d-44f0-99e7-b1a384245b14"
+  }
 }
