@@ -1,10 +1,12 @@
 <div class="img bg-wrap text-center">
     <div class="user-logo">
-        <img style="width:100px; height: 100px;" src="../../../assets/img/user.jpg" alt="user">
-        <h3 class="my-3">Anh Anh</h3>
+        <img class="rounded-circle mt-2" style="width:150px; height: 150px;" src="../../../assets/img/user.jpg" alt="user">
+        <h4 class="my-3">Nguyen Thi Anh Anh</h4>
     </div>
 </div>
-<mat-accordion>
+
+<!-- Admin -->
+<mat-accordion *ngIf="accAdmin">  
     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
             <mat-panel-title>
@@ -12,41 +14,83 @@
                 Dashboard
             </mat-panel-title>
         </mat-expansion-panel-header>
-        <button mat-stroked-button color="primary" class="btn btn-block">Next</button>
-        <button mat-stroked-button color="primary" class="btn btn-block">Next</button>
-        <button mat-stroked-button color="primary" class="btn btn-block">Next</button>
+        <button mat-stroked-button color="primary" class="btn btn-block" routerLink="admin/Dashboard">View Dashboard</button>
     </mat-expansion-panel>
+
     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
             <mat-panel-title>
-                <mat-icon class="mr-3">dashboard</mat-icon>
-                Dashboard
+                <i class='fas fa-user-tie mr-3' style='font-size:24px'></i>
+                Manager
             </mat-panel-title>
         </mat-expansion-panel-header>
-        <button mat-stroked-button color="primary" class="btn btn-block">Next</button>
-        <button mat-stroked-button color="primary" class="btn btn-block">Next</button>
-        <button mat-stroked-button color="primary" class="btn btn-block">Next</button>
+        <button mat-stroked-button color="primary" class="btn btn-block" routerLink="admin/Dashboard/allManager">All Managers</button>
+        <button mat-stroked-button color="primary" class="btn btn-block" routerLink="admin/Dashboard/addManager">Admission form</button>
     </mat-expansion-panel>
+
     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
             <mat-panel-title>
-                <mat-icon class="mr-3">dashboard</mat-icon>
-                Dashboard
+                <i class='fas fa-users mr-2' style='font-size:24px'></i>
+                Lecturer
             </mat-panel-title>
         </mat-expansion-panel-header>
-        <button mat-stroked-button color="primary" class="btn btn-block">Next</button>
-        <button mat-stroked-button color="primary" class="btn btn-block">Next</button>
-        <button mat-stroked-button color="primary" class="btn btn-block">Next</button>
+        <button mat-stroked-button color="primary" class="btn btn-block" routerLink="admin/Dashboard/allLecturer">All Lecturers</button>
+        <button mat-stroked-button color="primary" class="btn btn-block" routerLink="admin/Dashboard/addLecturer">Admission form</button>
     </mat-expansion-panel>
+
     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
             <mat-panel-title>
-                <mat-icon class="mr-3">dashboard</mat-icon>
-                Dashboard
+                <i class='fas fa-user-graduate mr-3' style='font-size:24px'></i>
+                Student
             </mat-panel-title>
         </mat-expansion-panel-header>
-        <button mat-stroked-button color="primary" class="btn btn-block">Next</button>
-        <button mat-stroked-button color="primary" class="btn btn-block">Next</button>
-        <button mat-stroked-button color="primary" class="btn btn-block">Next</button>
+        <button mat-stroked-button color="primary" class="btn btn-block" routerLink="admin/Dashboard/allStudent">All Students</button>
+        <button mat-stroked-button color="primary" class="btn btn-block" routerLink="admin/Dashboard/addStudent">Admission form</button>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <i class='fas fa-user-friends mr-2' style='font-size:24px'></i>
+                Guardian
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <button mat-stroked-button color="primary" class="btn btn-block" routerLink="admin/Dashboard/allGuardian">All Guardians</button>
+        <button mat-stroked-button color="primary" class="btn btn-block" routerLink="admin/Dashboard/addGuardian">Admission form</button>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <i class='fas fa-book mr-3' style='font-size:24px'></i>
+                Major
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <button mat-stroked-button color="primary" class="btn btn-block" routerLink="admin/Dashboard/allMajor">All Majors</button>
+        <button mat-stroked-button color="primary" class="btn btn-block" routerLink="admin/Dashboard/addMajor">Admission form</button>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <i class='fas fa-book-open mr-3' style='font-size:24px'></i>
+                Course
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <button mat-stroked-button color="primary" class="btn btn-block" routerLink="admin/Dashboard/allCourse">All Courses</button>
+        <button mat-stroked-button color="primary" class="btn btn-block" routerLink="admin/Dashboard/addCourse">Admission form</button>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <i class='fas fa-pencil-ruler mr-3' style='font-size:24px'></i>
+                Class
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <button mat-stroked-button color="primary" class="btn btn-block" routerLink="admin/Dashboard/allClass">All Classes</button>
+        <button mat-stroked-button color="primary" class="btn btn-block" routerLink="admin/Dashboard/addClass">Admission form</button>
     </mat-expansion-panel>
 </mat-accordion>

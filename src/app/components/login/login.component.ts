@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ESchoolService } from 'src/app/eSchool.service';
@@ -23,46 +23,60 @@ export class LoginComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    emailFormControl = new FormControl('', [
+    usernameFormControl = new FormControl('', [
         Validators.required,
-        Validators.email,
+        Validators.minLength(4),
     ]);
 
     passwordFormControl = new FormControl('', [
         Validators.required,
-        Validators.email,
+        Validators.minLength(6),
     ]);
 
     getRoleUser(username, password) {
-        this.loginService.getTypeUser(username, password)
+        this.loginService.getRoleUser(username, password)
             .subscribe(
-                data => {
-                    this.user = data
-                    if (data == null || username == null || password == null) {
-                        this.loginUser = "mail"
-                        console.log(this.loginUser)
-                    } else {
-                        let element: HTMLElement = document.getElementsByClassName('closeLogin')[0] as HTMLElement;
-                        element.click();
-                        if (this.user.role == 'admin') {
-                            this.setUser(this.user)
-                            this.router.navigate(['admin/Dashboard'])
-                            console.log(this.user.username)
-                        } else if (this.user.role == 'manager') {
-                            this.setUser(this.user)
-                            this.router.navigate(['manager/Dashboard'])
-                        } else if (this.user.role == 'lecturer') {
-                            this.setUser(this.user)
-                            this.router.navigate(['lecturer/Dashboard'])
-                        } else if (this.user.role == 'student') {
-                            this.setUser(this.user)
-                            this.router.navigate(['student/Dashboard'])
-                        } else if (this.user.role == 'guardian') {
-                            this.setUser(this.user)
-                            this.router.navigate(['guardian/Dashboard'])
-                        }
-                    }
+                user => {
+                    console.log(user);
+                    if (user != null) {
+                        this.checkAcc(user.role);
+                        console.log(user.role);
+                        
+                        sessionStorage.setItem('keyLogin', JSON.stringify(user))
+                        let element: HTMLElement = document.getElementById('close') as HTMLElement;
+                        element.click()
+                    } else alert("Email/Password invalid!")
                 })
+    }
+
+    checkAcc(role) {
+        switch (role) {
+            case 'ADMIN': {
+                this.setUser(this.user)
+                this.router.navigate(['admin/Dashboard'])
+                break;
+            }
+            case 'MANAGER': {
+                this.setUser(this.user)
+                this.router.navigate(['manager/Dashboard'])
+                break;
+            }
+            case 'LECTURER': {
+                this.setUser(this.user)
+                this.router.navigate(['lecturer/Dashboard'])
+                break;
+            }
+            case 'STUDENT': {
+                this.setUser(this.user)
+                this.router.navigate(['student/Dashboard'])
+                break;
+            }
+            case 'GUARDIAN': {
+                this.setUser(this.user)
+                this.router.navigate(['guardian/Dashboard'])
+                break;
+            }
+        }
     }
 
     isUserLoggedIn() {

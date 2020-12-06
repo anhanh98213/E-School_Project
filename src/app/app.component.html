@@ -1,45 +1,72 @@
-<!-- <body>
-    <header class="example-container">
-        <mat-toolbar color="primary" class="example-toolbar">
-            <img style="height: 110%;" src="../assets/img/logo1.png" alt="Logo">
-    
-            <button mat-icon-button (click)="snav.toggle()">
-                <mat-icon>menu</mat-icon>
-            </button>
-        </mat-toolbar>
-    </header>
-    
-    <mat-sidenav-container>
-        <mat-sidenav #snav  style="width: 250px;">
-            <app-sidebar></app-sidebar>
-        </mat-sidenav>
+<header *ngIf="login">
+    <div id="header">
+        <div>
+            <img src="../../../assets/img/logo.png" class="logo" alt="logo">
+        </div>
+        <div class="text-box">
+            <h3 class="heading-primary">
+                <span class="heading-primary__main">
+                    Welcome
+                </span>
+            </h3>
+            <a type="button" class="btn btn-white btn-animated" data-toggle="modal" data-target="#login"
+                style="font-size: medium">Login</a>
+        </div>
+    </div>
+</header>
 
-        <mat-sidenav-content>
-            <app-homepage></app-homepage>
-        </mat-sidenav-content>
-    </mat-sidenav-container>
-</body> -->
+<header *ngIf="accAdmin || accManager || accLecturer || accStudent">
+    <mat-toolbar color="primary" class="example-toolbar">
+        <img style="height: 110%;" src="../assets/img/logo.png" alt="Logo">
+        <button mat-icon-button (click)="snav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+ 
+        <button mat-icon-button [matMenuTriggerFor]="menu" id="menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <mat-card class="text-info">Welcome to E-School!</mat-card>
+            <button mat-menu-item>
+                <mat-icon>account_circle</mat-icon>
+                <span>Profile</span>
+            </button>
+            <button mat-menu-item *ngIf="logout" class="clickLogout" (click)="logOut()">
+                <mat-icon>settings_power</mat-icon>
+                <span>Sign Out</span>
+            </button>
+        </mat-menu>
+    </mat-toolbar>
+</header>
 
 <body>
-    <header>
-        <mat-toolbar color="primary" class="example-toolbar">
-            <img style="height: 110%;" src="../assets/img/logo.png" alt="Logo">
-            <button mat-icon-button (click)="snav.toggle()">
-                <mat-icon>menu</mat-icon>
-            </button>
-        </mat-toolbar>
-        <app-homepage></app-homepage>
-    </header>
     <mat-sidenav-container>
-        <mat-sidenav #snav  style="width: 300px;">
+        <mat-sidenav #snav style="width: 300px;">
             <app-sidebar></app-sidebar>
         </mat-sidenav>
-
         <mat-sidenav-content>
             <router-outlet></router-outlet>
         </mat-sidenav-content>
     </mat-sidenav-container>
-    <app-login></app-login>
 </body>
+<app-login></app-login>
 
-<!-- <app-sidebar></app-sidebar> -->
+
+<!-- <footer *ngIf="accAdmin" class=" my-2">
+    <div class="row">
+        <mat-card class="col mx-2 bg-primary text-white text-center">
+            <i class='fab fa-facebook-f mr-3' style='font-size:larger'></i>
+            <a>Like us on facebook</a>
+        </mat-card>
+        <mat-card class="col mx-2 bg-danger text-white text-center">
+            <i class='fab fa-google-plus-g mr-3' style='font-size:larger'></i>
+            <a>Follow us on googleplus</a>
+        </mat-card>
+        <mat-card class="col mx-2 bg-info text-white text-center">
+            <i class='fab fa-twitter mr-3' style='font-size:larger'></i>
+            <a>Follow us on twitter</a>
+        </mat-card>
+    </div>
+</footer> -->
+
+<!-- <app-add-student></app-add-student> -->

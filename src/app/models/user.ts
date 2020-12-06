@@ -1,15 +1,85 @@
-export class User{
-    id: number;
-    username: string;
-    password: string;
-    role: string;
+export class User {
+  email: string;
+  password: string;
+  role: string;
+  isActive: boolean;
+  lastLogin: string;
+  fullName: string;
+  firstName: string;
+  lastName: string;
+  dayOfBirth: Date;
+  placeOfBirth: string;
+  gender: string;
+  nationality: string;
+  religion: string;
+  maritalStatus: string;
+  permanentAddress: string;
+  phoneNumber: string;
+  avatar: string;
+}
+
+export class Token {
+  status: {
+    code: string,
+    message: string,
+  };
+  data: {
+    username: string,
+    role: string,
+    token: string,
+  }
+}
+
+export class CountStudent {
+  status: {
+    code: string,
+    message: string,
+  };
+  data: {
+    total: number,
+    male: number,
+    female: number,
+    otherGender: number
+  }
+}
+
+export class CountManager {
+  status: {
+    code: string,
+    message: string,
+  };
+  data: {
+    total: number,
+    male: number,
+    female: number,
+    otherGender: number
+  }
+}
+
+export class CountLecturer {
+  status: {
+    code: string,
+    message: string,
+  };
+  data: {
+    total: number,
+    male: number,
+    female: number,
+    otherGender: number
+  }
+}
+
+export class CountGuardian {
+  status: {
+    code: string,
+    message: string,
+  };
+  data: {
+    total: number,
+    male: number,
+    female: number,
+    otherGender: number
+  }
 }
 
 
-// export const USERS = [
-//     {id:0, username:'admin', password:'123456', type:'admin'},
-//     {id:1, username:'manager', password:'123456', type:'manager'},
-//     {id:2, username:'lecturer', password:'123456', type:'lecturer'},
-//     {id:3, username:'student', password:'123456', type:'student'},
-//     {id:4, username:'guardian', password:'123456', type:'guardian'},
-// ]

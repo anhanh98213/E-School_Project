@@ -1,0 +1,32 @@
+<div class="container-fluid">
+    <mat-card-title class="pl-4 pt-3">Add Major</mat-card-title>
+
+    <mat-card class="pl-4 pt-3 ml-4 mt-4">
+        <form class="example-form">
+            <table class="example-full-width">
+                <tr>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Code ID *</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </tr>
+                <tr>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Name *</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </tr>
+                <tr>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Description</mat-label>
+                        <textarea matInput></textarea>
+                    </mat-form-field>
+                </tr>
+            </table>
+        </form>
+        <div class="row justify-content-around mt-2">
+            <button mat-raised-button color="warn" class="col-5">Reset</button>
+            <button mat-raised-button color="primary" class="col-5">Add</button>
+        </div>
+    </mat-card>
+</div>
