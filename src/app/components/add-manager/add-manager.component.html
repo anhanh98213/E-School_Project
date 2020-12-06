@@ -1,1 +1,96 @@
-<p>add-manager works!</p>
+<div class="container-fluid">
+    <mat-card-title class="pl-4 pt-3">Add new Manager</mat-card-title>
+
+    <mat-card class="pl-4 pt-3 ml-4 mt-4">
+        <form class="example-form">
+            <div class="example-full-width row">
+                <div class="col-lg-3 col-md-6">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Username *</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Password *</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Email *</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Phone number *</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="example-full-width row">
+                <div class="col-lg-3 col-md-6">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>First name *</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Last name *</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Gender *</mat-label>
+                        <mat-select>
+                            <mat-option value="option">Male</mat-option>
+                            <mat-option value="option">Female</mat-option>
+                            <mat-option value="option">Other</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Religion</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="example-full-width row">
+                <div class="col-lg-3 col-md-6">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Date of birth</mat-label>
+                        <input matInput [matDatepicker]="picker">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker color="primary"></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Place of birth</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Permanent Address *</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Nationality</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+            </div>
+        </form>
+        <div class="row justify-content-around m-0 mt-2">
+            <button mat-raised-button color="warn" class="col-5">Reset</button>
+            <button mat-raised-button color="primary" class="col-5">Add</button>
+        </div>
+    </mat-card>
+</div>

@@ -39,7 +39,7 @@ export const STUDENTS : Student[] = [
   styleUrls: ['./all-student.component.css']
 })
 export class AllStudentComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'email', 'phone', 'address', 'dateOfBirth', 'gender'];
+  displayedColumns = ['id', 'name', 'email', 'phone', 'address', 'dateOfBirth', 'gender', 'option'];
   dataSource = new MatTableDataSource(STUDENTS);
 
 
@@ -54,7 +54,6 @@ export class AllStudentComponent implements OnInit {
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
-
   }
 
   applyFilter(event: Event) {
