@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
     loginUser = null
     id: String
 
+
     constructor(private router: Router, private loginService: LoginService, private eSchoolService: ESchoolService) {
 
     }
